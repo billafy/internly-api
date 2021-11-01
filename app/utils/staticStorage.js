@@ -1,4 +1,4 @@
-const multer = require("multer");
+/* const multer = require("multer");
 
 const { unlink } = require("fs");
 
@@ -47,4 +47,4 @@ module.exports = {
 	postUpload,
 	deleteProfilePicture,
 	deleteResume,
-};
+}; */
