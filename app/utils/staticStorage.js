@@ -3,7 +3,7 @@ const multer = require("multer");
 const { unlink } = require("fs");
 
 const profilePictureStorage = multer.diskStorage({
-	destination: "media/profilePictures/",
+	destination: "public/profilePictures/",
 	filename: (req, file, cb) => {
 		const type = file.mimetype.split("/");
 		if (type[0] === "image") cb(null, `${Date.now()}.${type[1]}`);
@@ -12,7 +12,7 @@ const profilePictureStorage = multer.diskStorage({
 const profilePictureUpload = multer({ storage: profilePictureStorage });
 
 const resumeStorage = multer.diskStorage({
-	destination: "media/resumes/",
+	destination: "public/resumes/",
 	filename: (req, file, cb) => {
 		const type = file.mimetype.split("/");
 		if (type[1] === "pdf") cb(null, `${Date.now()}.${type[1]}`);
@@ -21,7 +21,7 @@ const resumeStorage = multer.diskStorage({
 const resumeUpload = multer({ storage: resumeStorage });
 
 const postStorage = multer.diskStorage({
-	destination: "media/posts/",
+	destination: "public/posts/",
 	filename: (req, file, cb) => {
 		const type = file.mimetype.split("/");
 		if (type[0] === "image") cb(null, `${Date.now()}.${type[1]}`);
@@ -30,13 +30,13 @@ const postStorage = multer.diskStorage({
 const postUpload = multer({ storage: postStorage });
 
 const deleteProfilePicture = async (profilePicture) => {
-	unlink(`./media/profilePictures/${profilePicture}`, (err) => {
+	unlink(`./public/profilePictures/${profilePicture}`, (err) => {
 		if (err) return;
 	});
 };
 
 const deleteResume = async (resume) => {
-	unlink(`./media/resumes/${resume}`, (err) => {
+	unlink(`./public/resumes/${resume}`, (err) => {
 		if (err) return;
 	});
 };

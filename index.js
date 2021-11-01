@@ -24,7 +24,6 @@ const port = process.env.PORT || 5000;
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.static("media"));
 app.use(
 	cors({
 		origin: [
